@@ -1,0 +1,40 @@
+{ "name": "read-relaxed-json-from-stdin-pmb",
+  "version": "1.0.0",
+  "description": "Read and parse JSON objects from standard input. They may or may not be wrapped in an array. Hoard all the objects in RAM. Return a promise for an array of all those objects.",
+  "keywords": [
+    "json",
+    "stdin"
+  ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/read-relaxed-json-from-stdin-pmb-js/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/read-relaxed-json-from-stdin-pmb-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/read-relaxed-json-from-stdin-pmb-js/issues"
+  },
+  "contributors": [],
+
+  "private": false, "license": "MIT",
+
+  "main": "rrj.mjs",
+  "scripts": { "test": "elp && nodemjs test/all.mjs" },
+  "directories": { "test": "test" },
+  "eslintConfig": { "extends": "nodejs-pmb" },
+
+  "dependencies": {
+    "get-stdin": "^6.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-nodejs-pmb": "^0.3.5",
+    "eslint-plugin-json-light-pmb": "^1.0.7",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-pretty-pmb": "^1.0.5",
+    "nodemjs": "^0.1.13"
+  },
+
+
+  "engines": { "npm": ">=7.0.0", "node": ">=16.0.0" }
+}
