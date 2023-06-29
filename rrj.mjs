@@ -14,11 +14,7 @@ const rr = async function readRelaxedJsonFromStdin(opt) {
   logFunc('Done, got %s characters.', data.length);
 
   logFunc('Decoding…');
-  data = data.trim();
-  if (!data.startsWith('[')) { data = '[' + data + '\n]'; }
-  data = data.replace(/\s+(?=\n)/g, '');
-  data = data.replace(/(\})(\n\s*\{)/g, '$1,$2');
-
+  data = rr.cleanup(data);
   logFunc('Parsing…');
   data = JSON.parse(data);
   if (Array.isArray(data) && (data.slice(-1)[0] === null)) { data.pop(); }
@@ -35,6 +31,25 @@ const rr = async function readRelaxedJsonFromStdin(opt) {
   data.offset = effOffset;
   return data;
 };
+
+
+Object.assign(rr, {
+
+  cleanup(orig) {
+    let j = orig;
+    j = j.trim();
+    j = j.replace(/^[\w\s\.=\(]+(?=\[|\{)/, '');
+    j = j.replace(/[\);]+$/, '');
+    j = j.replace(/,\s*(?=\]?$)/, '');
+    j = j.trim();
+    if (!j.startsWith('[')) { j = '[' + j + '\n]'; }
+    j = j.replace(/\s+(?=\n)/g, '');
+    j = j.replace(/(\})(\n\s*\{)/g, '$1,$2');
+    return j;
+  },
+
+
+});
 
 
 export default rr;

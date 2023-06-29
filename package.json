@@ -1,5 +1,5 @@
 { "name": "read-relaxed-json-from-stdin-pmb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Read and parse JSON objects from standard input. They may or may not be wrapped in an array. Hoard all the objects in RAM. Return a promise for an array of all those objects.",
   "keywords": [
     "json",

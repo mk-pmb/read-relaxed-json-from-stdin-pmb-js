@@ -25,6 +25,10 @@ up to a few minutes.
 In addition to hoarding all the objects, the wrapper array detection is
 implemented naively and not very robust. It's meant as a mere convenience:
 
+* If the first line has a `[` or `{`
+  and in front of that has something that looks like an export mechanism,
+  the export mechanism is discarded.
+* In the last line, any trailing `)` and/or `;` are discarded.
 * If data doesn't start with `[`, all of it is wrapped in `[…]`.
 * Any inverse pair of `}` and `{` that has a newline between them,
   is assumed to be an object border and thus a comma is inserted.
